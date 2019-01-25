@@ -40,10 +40,10 @@ class Student extends Person {
             return `${this.name} ${this.favSubjects[i]}`;
           }
     }
-    PRAssignment() {
-        return `${student.name} has submitted a PR for ${subject}`;
+    PRAssignment(subject) {
+        return `${figg.name} has submitted a PR for ${subject}`;
     }
-    sprintChallenge() {
+    sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
 
@@ -57,7 +57,7 @@ class ProjectManager extends Instructor {
         this.favInstructor = gGChildAttributes.favInstructor;
 
     }
-    standUp(Cchannel) {
+    standUp(channel) {
         return `${this.name} announces to ${channel}, @channel standy times!​​​​​`;
         
     }
@@ -66,46 +66,52 @@ class ProjectManager extends Instructor {
     }
 }
 
-const fred = new Person ({
+
+
+  const fred = new Instructor({
     name: 'Fred',
     location: 'Bedrock',
     age: 37,
     gender: 'male',
-    
-});
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+  });
 
-const josh = new Instructor ({
-    specialty: 'redux',
-    favLanguage: `JavaScript, Python, Elm etc`,
-    catchPhrase: `Don't forget the homies`,
-    
-    }
-)
+  const bill = new ProjectManager({
+    name: 'Bill',
+    location: 'Michigan',
+    age: 32,
+    gender: 'female',
+    gradClassName: 'CS1',
+    favInstructor: 'Luis',
+    favLanguage: 'JavaScript',
+    specialty: 'Auth',
+    catchPhrase: 'Redux Rocks!'
+  });
 
-const sharan = new Student ({
-    previousBackground: 'Digital Marketing',
-    className: 'CS132',
-    favSubjects: ['HTML', 'CSS', 'JavaScript'],
-});
-
-const mikaela = new ProjectManager ({
-    gradClassNAme: 'CS1',
-    favInstructor: 'Sean',
-});
-
+  const figg = new Student({
+    name: 'Figgy',
+    location: 'Charleston',
+    age: 37,
+    gender: 'male',
+    previousBackground: 'Fork Lift Operator',
+    className: 'CS11',
+    favSubjects: ['Html', 'CSS', 'JavaScript']
+  });
 
 
-    // console.log(mage.createdAt); 
-    // console.log(archer.dimensions); 
-    // console.log(swordsman.healthPoints); 
-    // console.log(mage.name);
-    // console.log(swordsman.team);
-    // console.log(mage.weapons); 
-    // console.log(archer.language);
-    // console.log(archer.greet()); 
-    // console.log(mage.takeDamage());
-    // console.log(swordsman.destroy());
-
-    console.log(fred.speak()); //Hello my name is Fred, I am from Bedrock
-    console.log(sharan.listsSubjects());
-    
+  console.log(fred.speak());
+  console.log(fred.demo('variables'));
+  console.log(fred.grade(figg, 'redux'));
+  
+  console.log(figg.speak());
+  console.log(figg.listsSubjects());
+  console.log(figg.PRAssignment('Redux'));
+  console.log(figg.sprintChallenge('Pre-proccessing'));
+  
+  console.log(bill.speak());
+  console.log(bill.demo('Redux'));
+  console.log(bill.grade(figg, 'const vs let'));
+  console.log(bill.debugsCode(figg, 'DS-Algos'));
+  console.log(bill.standUp('#Code-Allstars'));
